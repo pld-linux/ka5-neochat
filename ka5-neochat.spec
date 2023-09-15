@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.0
+%define		kdeappsver	23.08.1
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		neochat
 Summary:	A Qt/QML based Matrix client
 Name:		ka5-%{kaname}
-Version:	23.08.0
-Release:	2
+Version:	23.08.1
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	e2a35f32294083ceb6dea6d52dfc75e2
+# Source0-md5:	4c26934a866a031b1bb3e4ef43db7d05
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5Gui-devel
