@@ -1,54 +1,55 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		neochat
 Summary:	A Qt/QML based Matrix client
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	6675b907d431aa59bdb80c8f56612898
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	c120517944cc11803f28f4a6a3870d5e
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= 5.15.0
-BuildRequires:	Qt6Gui-devel
-BuildRequires:	Qt6Keychain-devel
-BuildRequires:	Qt6Multimedia-devel
-BuildRequires:	Qt6Network-devel
-BuildRequires:	Qt6Qml-devel >= 5.15.10
-BuildRequires:	Qt6Quick-devel
-BuildRequires:	Qt6Svg-devel
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt5Core-devel >= 5.15.0
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Keychain-devel
+BuildRequires:	Qt5Multimedia-devel
+BuildRequires:	Qt5Network-devel
+BuildRequires:	Qt5Qml-devel >= 5.15.10
+BuildRequires:	Qt5Quick-controls2-devel
+BuildRequires:	Qt5Quick-devel
+BuildRequires:	Qt5Svg-devel
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	cmark-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= 5.105.0
-BuildRequires:	kf6-kconfig-devel >= 5.109.0
-BuildRequires:	kf6-kconfigwidgets-devel >= 5.109.0
-BuildRequires:	kf6-kcoreaddons-devel >= 5.109.0
-BuildRequires:	kf6-kdbusaddons-devel >= 5.105.0
-BuildRequires:	kf6-kdoctools >= 5.105.0
-BuildRequires:	kf6-ki18n-devel >= 5.105.0
-BuildRequires:	kf6-kio-devel >= 5.105.0
-BuildRequires:	kf6-kirigami-devel >= 5.105.0
-BuildRequires:	kf6-kitemmodels-devel >= 5.105.0
-BuildRequires:	kf6-knotifications-devel >= 5.105.0
-BuildRequires:	kf6-kwindowsystem-devel >= 5.105.0
-BuildRequires:	kf6-qqc2-desktop-style-devel >= 5.105.0
-BuildRequires:	kf6-sonnet-devel >= 5.105.0
+BuildRequires:	kf5-extra-cmake-modules >= 5.105.0
+BuildRequires:	kf5-kconfig-devel >= 5.109.0
+BuildRequires:	kf5-kconfigwidgets-devel >= 5.109.0
+BuildRequires:	kf5-kcoreaddons-devel >= 5.109.0
+BuildRequires:	kf5-kdbusaddons-devel >= 5.105.0
+BuildRequires:	kf5-kdoctools >= 5.105.0
+BuildRequires:	kf5-ki18n-devel >= 5.105.0
+BuildRequires:	kf5-kio-devel >= 5.105.0
+BuildRequires:	kf5-kirigami2-devel >= 5.105.0
+BuildRequires:	kf5-kitemmodels-devel >= 5.105.0
+BuildRequires:	kf5-knotifications-devel >= 5.105.0
+BuildRequires:	kf5-kwindowsystem-devel >= 5.105.0
+BuildRequires:	kf5-qqc2-desktop-style-devel >= 5.105.0
+BuildRequires:	kf5-sonnet-devel >= 5.105.0
 BuildRequires:	kirigami-addons-devel >= 0.7.2
-BuildRequires:	kquickimageeditor-devel >= 0.3.0
-BuildRequires:	libQuotient-qt6-devel >= 0.8.1.2-2
+BuildRequires:	kquickimageeditor-devel
+BuildRequires:	libQuotient-devel >= 0.7
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
-BuildRequires:	qcoro-qt6-devel >= 0.4
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qcoro-devel >= 0.4
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -75,8 +76,7 @@ SDK for the [Matrix Protocol](https://spec.matrix.org/).
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DQT_MAJOR_VERSION=6
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 %ninja_build -C build
 
 %if %{with tests}
@@ -102,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.kde.neochat.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.kde.neochat.svg
 %{_iconsdir}/hicolor/scalable/apps/org.kde.neochat.tray.svg
-%{_datadir}/knotifications6/neochat.notifyrc
+%{_datadir}/knotifications5/neochat.notifyrc
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %lang(ca) %{_mandir}/ca/man1/neochat.1*
 %lang(es) %{_mandir}/es/man1/neochat.1*
@@ -113,4 +113,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_mandir}/tr/man1/neochat.1*
 %lang(uk) %{_mandir}/uk/man1/neochat.1*
 %{_datadir}/metainfo/org.kde.neochat.appdata.xml
-%{_datadir}/qlogging-categories6/neochat.categories
+%{_datadir}/qlogging-categories5/neochat.categories
