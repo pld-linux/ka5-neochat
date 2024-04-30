@@ -9,7 +9,7 @@ Summary:	A Qt/QML based Matrix client
 Summary(pl.UTF-8):	Klient usługi Matrix oparty na Qt/QML
 Name:		ka5-%{kaname}
 Version:	23.08.5
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
