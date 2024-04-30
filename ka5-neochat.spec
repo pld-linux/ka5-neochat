@@ -13,7 +13,7 @@ License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	de2af33caee8f1fb7bff97dde8dc9fdb
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5Gui-devel
 BuildRequires:	Qt5Keychain-devel
