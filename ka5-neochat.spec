@@ -15,16 +15,16 @@ Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	de2af33caee8f1fb7bff97dde8dc9fdb
 URL:		https://kde.org/
-BuildRequires:	Qt5Core-devel >= 5.15.0
-BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Keychain-devel
-BuildRequires:	Qt5Multimedia-devel
-BuildRequires:	Qt5Network-devel
-BuildRequires:	Qt5Qml-devel >= 5.15.10
-BuildRequires:	Qt5Quick-controls2-devel
-BuildRequires:	Qt5Quick-devel
-BuildRequires:	Qt5Svg-devel
-BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt5Multimedia-devel >= %{qtver}
+BuildRequires:	Qt5Network-devel >= %{qtver}
+BuildRequires:	Qt5Qml-devel >= 5.15.13
+BuildRequires:	Qt5Quick-controls2-devel >= %{qtver}
+BuildRequires:	Qt5Quick-devel >= %{qtver}
+BuildRequires:	Qt5Svg-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	cmake >= 3.20
 BuildRequires:	cmark-devel
 BuildRequires:	fontconfig-devel
@@ -49,11 +49,13 @@ BuildRequires:	kquickimageeditor-devel
 BuildRequires:	libQuotient-devel >= 0.7
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	python3 >= 1:3
 BuildRequires:	qcoro-devel >= 0.4
 BuildRequires:	qt5-build >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,7 +89,8 @@ protokołu Matrix (<https://spec.matrix.org/>).
 	-B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
-	-DHTML_INSTALL_DIR=%{_kdedocdir} \
+	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
+	-DKDE_INSTALL_SYSCONFDIR=%{_sysconfdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 %ninja_build -C build
 
@@ -98,6 +101,7 @@ ctest --test-dir build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 # not supported by glibc yet (2.37)
