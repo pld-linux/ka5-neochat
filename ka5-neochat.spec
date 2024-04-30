@@ -6,6 +6,7 @@
 %define		qtver		5.15.2
 %define		kaname		neochat
 Summary:	A Qt/QML based Matrix client
+Summary(pl.UTF-8):	Klient usługi Matrix oparty na Qt/QML
 Name:		ka5-%{kaname}
 Version:	23.08.5
 Release:	1
@@ -57,15 +58,26 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-NeoChat is a client for [Matrix](https://matrix.org), the
+NeoChat is a client for Matrix (<https://matrix.org/>), the
 decentralized communication protocol for instant messaging. It is a
-fork of Spectral, using KDE frameworks, most notably
-[Kirigami](https://invent.kde.org/frameworks/kirigami) to provide a
+fork of Spectral, using KDE frameworks, most notably Kirigami
+(<https://invent.kde.org/frameworks/kirigami>) to provide a
 convergent experience across multiple platforms.
 
-NeoChat also make use of other KDE Frameworks as well as
-[libQuotient](https://github.com/quotient-im/libQuotient), a Qt-based
-SDK for the [Matrix Protocol](https://spec.matrix.org/).
+NeoChat also make use of other KDE Frameworks as well as libQuotient
+(<https://github.com/quotient-im/libQuotient>), a Qt-based SDK for the
+Matrix Protocol (<https://spec.matrix.org/>).
+
+%description -l pl.UTF-8
+NeoChat to klient usługi Matrix (<https://matrix.org/>) -
+zdecentralizowanego protokołu komunikatora internetowego. Jest to
+odgałęzienie Spectral, wykorzystujące szkielety KDE, w szczególności
+Kirigami (<https://invent.kde.org/frameworks/kirigami>), w celu
+zapewnienia wygodnej obsługi na wielu platformach.
+
+Ne3oChat wykorzystuje także inne szkielety KDE, a także libQuotient
+(<https://github.com/quotient-im/libQuotient>) - oparte na Qt SDK dla
+protokołu Matrix (<https://spec.matrix.org/>).
 
 %prep
 %setup -q -n %{kaname}-%{version}
