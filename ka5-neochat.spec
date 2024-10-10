@@ -9,7 +9,7 @@ Summary:	A Qt/QML based Matrix client
 Summary(pl.UTF-8):	Klient usługi Matrix oparty na Qt/QML
 Name:		ka5-%{kaname}
 Version:	23.08.5
-Release:	2
+Release:	3
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -38,13 +38,13 @@ BuildRequires:	kf5-kdbusaddons-devel >= 5.105.0
 BuildRequires:	kf5-kdoctools >= 5.105.0
 BuildRequires:	kf5-ki18n-devel >= 5.105.0
 BuildRequires:	kf5-kio-devel >= 5.105.0
+BuildRequires:	kf5-kirigami-addons-devel >= 0.7.2
 BuildRequires:	kf5-kirigami2-devel >= 5.105.0
 BuildRequires:	kf5-kitemmodels-devel >= 5.105.0
 BuildRequires:	kf5-knotifications-devel >= 5.105.0
 BuildRequires:	kf5-kwindowsystem-devel >= 5.105.0
 BuildRequires:	kf5-qqc2-desktop-style-devel >= 5.105.0
 BuildRequires:	kf5-sonnet-devel >= 5.105.0
-BuildRequires:	kirigami-addons-devel >= 0.7.2
 BuildRequires:	kquickimageeditor-devel
 BuildRequires:	libQuotient-devel >= 0.7
 BuildRequires:	ninja
