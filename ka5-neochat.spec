@@ -14,7 +14,7 @@ License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	de2af33caee8f1fb7bff97dde8dc9fdb
-URL:		https://kde.org/
+URL:		https://apps.kde.org/neochat/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Keychain-devel
@@ -77,7 +77,7 @@ odgałęzienie Spectral, wykorzystujące szkielety KDE, w szczególności
 Kirigami (<https://invent.kde.org/frameworks/kirigami>), w celu
 zapewnienia wygodnej obsługi na wielu platformach.
 
-Ne3oChat wykorzystuje także inne szkielety KDE, a także libQuotient
+NeoChat wykorzystuje także inne szkielety KDE, a także libQuotient
 (<https://github.com/quotient-im/libQuotient>) - oparte na Qt SDK dla
 protokołu Matrix (<https://spec.matrix.org/>).
 
